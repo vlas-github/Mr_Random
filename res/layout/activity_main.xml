@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvCountList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Всего списков: 0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/btnAddList"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnGetRandomElem_onClick"
+            android:text="Запустить рандом!" />
+        
+        <Button
+            android:id="@+id/btnClearPriority"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnClearPriority_onClick"
+            android:text="Сбросить приоритеты" />
+
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/spLists"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+        
+	    <LinearLayout 
+	        android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:orientation="vertical"
+	    	android:layout_margin="@dimen/item_margin"
+	    	android:padding="@dimen/item_pading"
+	        android:background="@drawable/rounded_corners_white">
+	        	
+		    <ListView
+		        android:id="@+id/lvElemList"
+		        android:layout_weight="1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content" >
+		    </ListView>
+		
+			<FrameLayout
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_gravity="top"
+			   	android:layout_weight="0"
+			    android:layout_marginTop="0dp"
+			    android:padding="0dp">
+		    
+		       	<EditText
+					android:id="@+id/etAdd"
+					android:singleLine="true"
+					android:inputType="none"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="3dp"
+					style="@style/EditTextOneLineModifer"
+					android:imeOptions="actionDone"
+					android:hint="@string/etAddHint"
+					android:ems="10" >
+		      		<requestFocus />
+		       </EditText>
+		       
+		       <Button
+					android:id="@+id/btnAdd"
+					android:layout_width="18dp"
+					android:layout_height="18dp"
+					android:layout_marginLeft="8dp"
+					android:layout_gravity="left|center_vertical" 
+		        	android:background="@drawable/add"
+		           	android:onClick="btnAddElemList_onClick"/> 
+		       
+		       <Button
+			        android:id="@+id/btnClear"      
+			        android:layout_width="18dp"
+			        android:layout_height="18dp"
+			        android:layout_marginRight="8dp"
+			        android:onClick="btnClear_onClick"
+			        android:layout_gravity="right|center_vertical" 
+			        android:background="@drawable/delete"/>			
+			</FrameLayout>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>
